@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Political Arcade</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <header class="top">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>★ INSERT COINS ★ INSERT COINS ★ INSERT COINS ★ INSERT COINS ★</span>
+      <span>★ INSERT COINS ★ INSERT COINS ★ INSERT COINS ★ INSERT COINS ★</span>
+    </div>
+  </div>
+
+  <h1>POLITICAL ARCADE</h1>
+
+  <div class="sticker-row" aria-label="Arcade stickers">
+    <span class="sticker" title="Unicorn">🦄</span>
+    <span class="sticker" title="Rainbow">🌈</span>
+    <span class="sticker" title="Elephant">🐘</span>
+    <span class="sticker" title="Donkey">🫏</span>
+    <span class="sticker" title="Cherry">🍒</span>
+    <span class="sticker" title="Star">⭐</span>
+  </div>
+
+  <div class="sub">DON’T BE #1. DON’T BE LAST. 🕹️</div>
+</header>
+
+<main class="wrap">
+  <section class="panel" id="rules">
+    <h2>RULES</h2>
+    <ul>
+      <li>Runs from the <b>5th</b> to the <b>5th</b>.</li>
+      <li>Nominate when someone is being political and add a quick reason.</li>
+      <li>Others can agree or downvote a nomination.</li>
+      <li><b>Most political</b> pays the bill.</li>
+      <li><b>Quietest</b> pays the tip.</li>
+      <li>Rank titles are assigned by position on the leaderboard.</li>
+    </ul>
+  </section>
+
+  <section class="panel" id="add-player">
+    <h2>ADD PLAYER</h2>
+    <div class="status" id="gameStatus">STATUS: WAITING FOR FIRST PLAYER…</div>
+
+    <div class="form-row">
+      <input type="text" id="nameInput" placeholder="NAME" maxlength="20" />
+      <input type="file" id="photoInput" accept="image/*" />
+      <button id="addBtn">ADD</button>
+    </div>
+
+    <div class="hint">Game is live as soon as someone joins. Add people anytime.</div>
+  </section>
+
+  <section class="panel" id="leaderboard">
+    <div class="leader-top">
+      <h2>LEADERBOARD</h2>
+      <button id="resetBtn" class="ghost">RESET (LOCAL)</button>
+    </div>
+    <div id="players"></div>
+  </section>
+
+  <section class="panel" id="comments">
+    <div class="leader-top">
+      <h2>COMMENT BOARD</h2>
+      <span class="tiny">Requires name + comment.</span>
+    </div>
+
+    <div class="comment-form">
+      <input id="commenterName" type="text" placeholder="YOUR NAME" maxlength="20" />
+      <input id="commentText" type="text" placeholder="COMMENT…" maxlength="120" />
+      <button id="addCommentBtn">POST</button>
+    </div>
+
+    <div id="commentList" class="comment-list"></div>
+  </section>
+
+  <section class="panel" id="margarita">
+    <h2>MARGARITA CHALLENGE BETTING 🍹</h2>
+    <div class="tiny" id="betCloseLine">Betting closes 1 week before the challenge.</div>
+
+    <div class="bet-form">
+      <input id="bettorName" type="text" placeholder="YOUR NAME" maxlength="20" />
+      <input id="betAmount" type="number" placeholder="AMOUNT ($)" min="1" step="1" />
+      <div class="bet-row">
+        <button class="bet-btn" id="betTony">BET: TONY</button>
+        <button class="bet-btn" id="betBrittany">BET: BRITTANY</button>
+      </div>
+      <div class="tiny" id="betStatus"></div>
+    </div>
+
+    <div class="bet-stats">
+      <div class="bet-card">
+        <div class="bet-name">TONY</div>
+        <div class="bet-count" id="tonyTotal">$0</div>
+        <div class="tiny"><span id="tonyCount">0</span> bet(s)</div>
+      </div>
+
+      <div class="bet-card">
+        <div class="bet-name">BRITTANY</div>
+        <div class="bet-count" id="brittanyTotal">$0</div>
+        <div class="tiny"><span id="brittanyCount">0</span> bet(s)</div>
+      </div>
+    </div>
+
+    <div class="bet-list-title tiny">RECENT BETS</div>
+    <div id="betList" class="bet-list"></div>
+  </section>
+</main>
+
+<!-- Vote Reason Modal -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-title" id="modalTitle">CAST VOTE</div>
+
+    <div class="modal-row">
+      <div class="vote-emoji" id="modalEmoji">⭐</div>
+      <input id="reasonInput" type="text" placeholder="REASON (e.g. healthcare policy)" maxlength="40" />
+    </div>
+
+    <div class="modal-actions">
+      <button id="cancelVoteBtn" class="ghost">CANCEL</button>
+      <button id="submitVoteBtn">SUBMIT</button>
+    </div>
+
+    <div class="modal-note">Votes can be cast unlimited times. This is for fun.</div>
+  </div>
+</div>
+    <script src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
